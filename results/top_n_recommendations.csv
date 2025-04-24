@@ -1,0 +1,13 @@
+import pandas as pd
+
+top_n = get_top_n(predictions_user, n=5)
+
+# Convert to list of rows
+recommendations = []
+for uid, user_ratings in top_n.items():
+    for iid, score in user_ratings:
+        recommendations.append({'user_id': uid, 'item_id': iid, 'predicted_rating': score})
+
+# Save as CSV
+df_recs = pd.DataFrame(recommendations)
+df_recs.to_csv('results/top_n_recommendations.csv', index=False)

@@ -1,0 +1,3 @@
+from src.evaluation import save_metrics
+
+save_metrics(rmse_user, precision_user, recall_user)
